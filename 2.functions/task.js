@@ -14,10 +14,13 @@ function getArrayParams(...arr) {
   let quantityElement = arr.length;
   let avg = sumElements / quantityElement;
   avg = +avg.toFixed(2);
-  return ;
+  return  { min: minElement, max: maxElement, avg: avg };
 }
 
 function summElementsWorker(...arr) {
+  if (arr == []) {
+    resultSumElements = 0;
+  }
   let resultSumElements = arr.reduce(function(sum, elem) {
     return sum + elem;
   }, 0);
