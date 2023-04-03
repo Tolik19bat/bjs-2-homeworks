@@ -31,7 +31,7 @@ function summElementsWorker(...arr) {
 
 function differenceMaxMinWorker(...arr) {
   let elementDifference = 0;
-  if (arr == []) {
+  if (arr === []) {
     return elementDifference;
   }
   let minElement = arr[0];
