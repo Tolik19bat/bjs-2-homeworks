@@ -30,25 +30,23 @@ function summElementsWorker(...arr) {
 }
 
 function differenceMaxMinWorker(...arr) {
-  let elementDifference = 0;
+let elementDifference = 0;
+let minElement = arr[0];
+let maxElement = arr[0];
+for (const item of arr) {
   if (arr === []) {
-    return elementDifference;
+    elementDifference = 0;
   }
-  let minElement = arr[0];
-  for (const item of arr) {
-    if (item < minElement) {
-      minElement = item;
-    }
+  if (item < minElement) {
+    minElement = item;
+  } else {
+    maxElement = item;
   }
-  let maxElement = arr[0];
-  for (const item of arr) {
-    if (item > maxElement) {
-      maxElement = item;
-    }
-  }
-  elementDifference = maxElement - minElement;
-  
-  return elementDifference;
+}
+
+elementDifference = maxElement - minElement;
+
+return elementDifference;
 }
 
 function differenceEvenOddWorker(...arr) {
