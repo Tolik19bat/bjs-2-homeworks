@@ -1,21 +1,28 @@
 function getArrayParams(...arr) {
-  let min = arr[0];
-  min = Math.min(...arr);
+  if (arr == []) {
+    return { min: 0, max: 0, avg: 0 };
+  }
+  let minElement = arr[0];
+  minElement = Math.min(...arr);
   
-  let max = arr[0];
-  max = Math.max(...arr);
+  let maxElement = arr[0];
+  maxElement = Math.max(...arr);
   
-  let sum = arr.reduce(function(sumOfNumbers, element) {
+  let sumElements = arr.reduce(function(sumOfNumbers, element) {
     return sumOfNumbers + element;
   }, 0);
   let quantityElement = arr.length;
-  let avg = sum / quantityElement;
+  let avg = sumElements / quantityElement;
   avg = +avg.toFixed(2);
-  return { min: min, max: max, avg: avg };
+  return ;
 }
 
 function summElementsWorker(...arr) {
-
+  let resultSumElements = arr.reduce(function(sum, elem) {
+    return sum + elem;
+  }, 0);
+  return resultSumElements;
+  
 }
 
 function differenceMaxMinWorker(...arr) {
