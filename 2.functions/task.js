@@ -18,10 +18,11 @@ function getArrayParams(...arr) {
 }
 
 function summElementsWorker(...arr) {
+  let resultSumElements = 0;
   if (arr == []) {
-    resultSumElements = 0;
+  return resultSumElements;
   }
-  let resultSumElements = arr.reduce(function(sum, elem) {
+   resultSumElements = arr.reduce(function(sum, elem) {
     return sum + elem;
   }, 0);
   return resultSumElements;
