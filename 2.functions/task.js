@@ -56,8 +56,6 @@ function differenceEvenOddWorker(...arr) {
   return difference;
 }
 
-function averageEvenElementsWorker(...arr) {
-
-}
+function averageEvenElementsWorker(...arr) {}
 
 function makeWork(arrOfArr, func) {}
