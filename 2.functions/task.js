@@ -31,18 +31,29 @@ function differenceMaxMinWorker(...arr) {
   if (arr.length === 0) {
     return 0;
   }
-  let numberDifference = 0;
   let minElement = 0;
   minElement = Math.min(...arr);
   let maxElement = 0;
   maxElement = Math.max(...arr);
-  numberDifference = maxElement - minElement;
+  let numberDifference = maxElement - minElement;
   return numberDifference;
 }
+
 function differenceEvenOddWorker(...arr) {
   if (arr.length === 0) {
     return 0;
   }
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      sumEvenElement += arr[i];
+    } else {
+      sumOddElement += arr[i];
+    }
+  }
+  let difference = sumEvenElement - sumOddElement;
+  return difference;
 }
 
 function averageEvenElementsWorker(...arr) {}
