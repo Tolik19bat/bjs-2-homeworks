@@ -46,7 +46,7 @@ function differenceEvenOddWorker(...arr) {
   let sumEvenElement = 0;
   let sumOddElement = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (i % 2 === 0) {
+    if (arr[i] % 2 === 0) {
       sumOddElement += arr[i];
     } else {
       sumEvenElement += arr[i];
