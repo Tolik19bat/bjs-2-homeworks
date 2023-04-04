@@ -29,13 +29,10 @@ function summElementsWorker(...arr) {
 }
 
 function differenceMaxMinWorker(...arr) {
-  let numberDifference;
+  let numberDifference = 0;
   let minElement = Math.min(arr);
   let maxElement = Math.max(arr);
   numberDifference = maxElement - minElement;
-  if (arr === []) {
-    numberDifference = 0;
-  }
   return numberDifference;
 }
 function differenceEvenOddWorker(...arr) {}
