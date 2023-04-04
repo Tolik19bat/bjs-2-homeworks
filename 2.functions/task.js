@@ -3,10 +3,10 @@ function getArrayParams(...arr) {
     return { min: 0, max: 0, avg: 0 };
   }
   let minElement = arr[0];
-  minElement = Math.min(arr);
+  minElement = Math.min(...arr);
 
   let maxElement = arr[0];
-  maxElement = Math.max(arr);
+  maxElement = Math.max(...arr);
 
   let sumElements = arr.reduce(function (sumOfNumbers, element) {
     return sumOfNumbers + element;
@@ -30,8 +30,8 @@ function summElementsWorker(...arr) {
 
 function differenceMaxMinWorker(...arr) {
   let numberDifference = 0;
-  let minElement = Math.min(arr);
-  let maxElement = Math.max(arr);
+  let minElement = Math.min(...arr);
+  let maxElement = Math.max(...arr);
   numberDifference = maxElement - minElement;
   return numberDifference;
 }
