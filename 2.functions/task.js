@@ -81,7 +81,7 @@ function makeWork(arrOfArr, func) {
   for (let i = 0; i < arrOfArr.length; i++) {
     const maxNumberInArray = func(...arrOfArr[i]);
     if (maxNumberInArray > maxWorkerResult) {
-      maxWorkerResult = maxNumber;
+      maxWorkerResult = maxNumberInArray;
     }
   }
   return maxWorkerResult;
