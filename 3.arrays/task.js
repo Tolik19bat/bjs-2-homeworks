@@ -19,8 +19,8 @@ function getUsersNamesInAgeRange(users, gender) {
       (total, element) => total + element,
       0
     );
-    const elementsQuantity = agesQuantity.length;
-    const result = arrayWithAges / elementsQuantity;
+    const agesElementsQuantity = agesQuantity.length;
+    const result = arrayWithAges / agesElementsQuantity;
     return result;
   } else {
     return (result = 0);
