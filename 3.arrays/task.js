@@ -13,14 +13,14 @@ function getUsersNamesInAgeRange(users, gender) {
     return (result = 0);
   }
   if (gender === "мужской" || gender === "женский") {
-    const sortingByGender = users.filter((obj) => obj.gender === gender);
-    const agesQuantity = sortingByGender.map((obj) => obj.age);
-    const arrayWithAges = agesQuantity.reduce(
+    let sortingByGender = users.filter((obj) => obj.gender === gender);
+    let agesQuantity = sortingByGender.map((obj) => obj.age);
+    let arrayWithAges = agesQuantity.reduce(
       (total, element) => total + element,
       0
     );
-    const agesElementsQuantity = agesQuantity.length;
-    const result = arrayWithAges / agesElementsQuantity;
+    let agesElementsQuantity = agesQuantity.length;
+    let result = arrayWithAges / agesElementsQuantity;
     return result;
   } else {
     return (result = 0);
