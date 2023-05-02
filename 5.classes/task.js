@@ -22,12 +22,14 @@ class PrintEditionItem {
     return this._state;
   }
 }
+
 class Magazine extends PrintEditionItem {
   constructor(name, releaseDate, pagesCount, state = 100, type = null) {
     super(name, releaseDate, pagesCount, (state = 100), (type = null));
     this.type = "magazine";
   }
 }
+
 class Book extends PrintEditionItem {
   constructor(author, name, releaseDate, pagesCount, state = 100, type = null) {
     super(name, releaseDate, pagesCount, (state = 100), (type = null));
@@ -35,36 +37,27 @@ class Book extends PrintEditionItem {
     this.type = "book";
   }
 }
+
 class NovelBook extends Book {
   constructor(author, name, releaseDate, pagesCount, state = 100, type = null) {
     super(author, name, releaseDate, pagesCount, (state = 100), (type = null));
     this.type = "novel";
   }
 }
+
 class FantasticBook extends Book {
   constructor(author, name, releaseDate, pagesCount, state = 100, type = null) {
     super(author, name, releaseDate, pagesCount, (state = 100), (type = null));
     this.type = "fantastic";
   }
 }
+
 class DetectiveBook extends Book {
   constructor(author, name, releaseDate, pagesCount, state = 100, type = null) {
     super(author, name, releaseDate, pagesCount, (state = 100), (type = null));
     this.type = "detective";
   }
 }
-// const picknick = new FantasticBook(
-//   "Аркадий и Борис Стругацкие",
-//   "Пикник на обочине",
-//   1972,
-//   168
-// );
-
-// console.log(picknick.author); //"Аркадий и Борис Стругацкие"
-// picknick.state = 10;
-// console.log(picknick.state); //10
-// picknick.fix();
-// console.log(picknick.state); //15
 
 class Library {
   constructor(name, books = []) {
@@ -78,18 +71,18 @@ class Library {
     }
   }
   findBookBy(type, value) {
-    let findBook = this.books.find((item) => item[type] == value);
+    let findBook = this.books.find((itemBook) => itemBook[type] == value);
     if (findBook === undefined) {
       findBook = null;
     }
     return findBook;
   }
-
   giveBookByName(bookName) {
-    let book = this.findBookBy("name", bookName);
-    if (book) {
-      this.books.splice(this.books.indexOf(book), 1);
+    let searchBook = this.findBookBy("name", bookName);
+    if (searchBook) {
+      this.books.splice(this.books.indexOf(searchBook), 1);
     }
-    return book;
+    return searchBook;
   }
 }
+
