@@ -21,13 +21,14 @@ class Triangle {
     this.sideB = sideB;
     this.sideC = sideC;
     if (
-      this.sideA + this.sideB < this.sideC ||
-      this.sideA + this.sideC < this.sideB ||
-      this.sideB + this.sideC < this.sideA
+      sideA + sideB < sideC ||
+      sideA + sideC < sideB ||
+      sideB + sideC < sideA
     ) {
       throw new Error("Треугольник с такими сторонами не существует");
     }
   }
+  
   get perimeter() {
     const triangleObject = this.sideA + this.sideB + this.sideC;
     return +triangleObject;
@@ -49,7 +50,7 @@ function getTriangle(sideA, sideB, sideC) {
     const objectTriangle = new Triangle(sideA, sideB, sideC);
     return objectTriangle;
   } catch (error) {
-    const getters = {
+    return {
       get area() {
         return "Ошибка! Треугольник не существует";
       },
@@ -57,6 +58,5 @@ function getTriangle(sideA, sideB, sideC) {
         return "Ошибка! Треугольник не существует";
       },
     };
-    return getters;
   }
 }
