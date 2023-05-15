@@ -61,7 +61,7 @@ class AlarmClock {
     });
   }
   clearAlarms() {
-    this.stop();
+    this.stop;
     this.alarmCollection = [];
   }
 }
