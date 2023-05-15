@@ -21,19 +21,15 @@ class AlarmClock {
     this.alarmCollection.push(objectParameters);
   }
   removeClock(time) {
-    let newAlarmCollection = this.alarmCollection.filter(function (
-      elementTime
-    ) {
-      return elementTime !== time;
-    });
-    this.alarmCollection = newAlarmCollection;
+    let newAlarmCollection = this.alarmCollection.filter(
+      element => element.time !== time);
+     this.alarmCollection = newAlarmCollection;
   }
   getCurrentFormattedTime() {
-    let newDate = new Date();
-    let hours = newDate.getHours(0, 0);
-    let minutes = newDate.getMinutes(0, 0);
-    let worldTime = `${hours}:${minutes}`;
-    return worldTime;
+    let newdate = new Date();
+    let hours = newdate.getHours().toString().length < 2 ? '0' + newdate.getHours() : newdate.getHours();
+    let minutes = newdate.getMinutes().toString().length < 2 ? '0' + newdate.getMinutes() : newdate.getMinutes();
+    return `${hours}:${minutes}`;
   }
   start(intervalId) {
     if (intervalId !== null) {
@@ -41,27 +37,27 @@ class AlarmClock {
     }
     this.intervalId = setInterval(() => {
       this.alarmCollection.forEach((searchTime) => {
-        if (this.getCurrentFormattedTime === searchTime) {
-          this.alarmCollection.canCall = true;
+        if (this.getCurrentFormattedTime() === searchTime) {
+          this.alarmCollection[canCall] = true;
         }
-        if (this.alarmCollection.canCall === true) {
-          this.alarmCollection.canCall = false;
-          this.alarmCollection.callback;
+        if (this.alarmCollection[canCall] === true) {
+          this.alarmCollection[canCall] = false;
+          return this.alarmCollection[callback];
         }
       });
     }, 1000);
   }
   stop() {
     clearInterval(this.intervalId);
-    this.intervalId = null;
+    return (this.intervalId = null);
   }
   resetAllCals() {
-    this.alarmCollection.forEach(() => {
-      return (this.alarmCollection.canCall = true);
-    });
-  }
+    this.alarmCollection.forEach(alarm => alarm.canCall = true);
+    return this.alarmCollection;
+    };
+  
   clearAlarms() {
-    this.stop;
+    this.stop();
     this.alarmCollection = [];
   }
 }
