@@ -42,11 +42,11 @@ class AlarmClock {
     this.intervalId = setInterval(() => {
       this.alarmCollection.forEach((searchTime) => {
         if (this.getCurrentFormattedTime === searchTime) {
-          return this.alarmCollection.canCall = true;
+          this.alarmCollection.canCall = true;
         }
         if (this.alarmCollection.canCall === true) {
           this.alarmCollection.canCall = false;
-          return this.alarmCollection.callback;
+          this.alarmCollection.callback;
         }
       });
     }, 1000);
