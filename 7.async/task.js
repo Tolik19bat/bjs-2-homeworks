@@ -1,45 +1,67 @@
 class AlarmClock {
-  constructor(alarmCollection = [], intervalid, callback, time, canCall = true) {
+  constructor(alarmCollection = [], intervalId = null) {
     this.alarmCollection = alarmCollection;
-    this.intervalid = intervalid;
-    this.callback = callback;
-    this.time = time;
-    this.canCall = canCall;
+    this.intervalId = intervalId;
   }
-  addClock(callback, time, canCall = true) {
+  addClock(time, callback) {
     if (callback === undefined) {
       throw new Error("Отсутствуют обязательные аргументы");
     }
-    if (time === undefined) {
+    if (time === null) {
       throw new Error("Отсутствуют обязательные аргументы");
     }
     if (this.alarmCollection.includes(time) === true) {
       console.warn("Уже присутствует звонок на это же время");
     }
-    let object = {
+    let objectParameters = {
       callback,
       time,
-      canCall,
+      canCall: true,
     };
-    this.alarmCollection.push(object);
-    return this.alarmCollection;
+    this.alarmCollection.push(objectParameters);
   }
   removeClock(time) {
-    let newAlarmCollection = this.alarmCollection.filter(function (element) {
-      return element !== time;
+    let newAlarmCollection = this.alarmCollection.filter(function (
+      elementTime
+    ) {
+      return elementTime !== time;
     });
-    return (this.alarmCollection = newAlarmCollection);
+    this.alarmCollection = newAlarmCollection;
   }
-  debugger;
   getCurrentFormattedTime() {
     let newDate = new Date();
-    let hours = newDate.getHours();
-    let minutes = newDate.getMinutes();
-    return `${hours}:${minutes}`;
+    let hours = newDate.getHours(0, 0);
+    let minutes = newDate.getMinutes(0, 0);
+    let worldTime = `${hours}:${minutes}`;
+    return worldTime;
   }
-  start(intervalid) {
-    if(intervalid !== undefined) {
-        return;
+  start(intervalId) {
+    if (intervalId !== null) {
+      return;
     }
+    this.intervalId = setInterval(() => {
+      this.alarmCollection.forEach((searchTime) => {
+        if (this.getCurrentFormattedTime === searchTime) {
+          return this.alarmCollection.canCall = true;
+        }
+        if (this.alarmCollection.canCall === true) {
+          this.alarmCollection.canCall = false;
+          return this.alarmCollection.callback;
+        }
+      });
+    }, 1000);
+  }
+  stop() {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+  }
+  resetAllCals() {
+    this.alarmCollection.forEach(() => {
+      return (this.alarmCollection.canCall = true);
+    });
+  }
+  clearAlarms() {
+    this.stop();
+    this.alarmCollection = [];
   }
 }
