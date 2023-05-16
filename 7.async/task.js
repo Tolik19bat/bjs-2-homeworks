@@ -36,24 +36,23 @@ class AlarmClock {
       return;
     }
     this.intervalId = setInterval(() => {
-      this.alarmCollection.forEach((searchTime) => {
+      this.alarmCollection.forEach(searchTime => {
         if (this.getCurrentFormattedTime() === searchTime) {
-          this.alarmCollection[canCall] = true;
+          this.alarmCollection.canCall = true;
         }
-        if (this.alarmCollection[canCall] === true) {
-          this.alarmCollection[canCall] = false;
-          return this.alarmCollection[callback];
+        if (this.alarmCollection.canCall === true) {
+          this.alarmCollection.canCall = false;
+          return this.alarmCollection.callback;
         }
       });
     }, 1000);
   }
   stop() {
     clearInterval(this.intervalId);
-    return (this.intervalId = null);
+    return this.intervalId = null;
   }
-  resetAllCals() {
+  resetAllCalls() {
     this.alarmCollection.forEach(alarm => alarm.canCall = true);
-    return this.alarmCollection;
     };
   
   clearAlarms() {
