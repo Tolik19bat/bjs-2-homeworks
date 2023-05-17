@@ -42,13 +42,13 @@ class AlarmClock {
       return;
     }
     this.intervalId = setInterval(() => {
-      this.alarmCollection.forEach((searchTime) => {
+      this.alarmCollection.forEach((alarmProperty) => {
         if (
-          searchTime.time === this.getCurrentFormattedTime() &&
-          searchTime.canCall === true
+          alarmProperty.time === this.getCurrentFormattedTime() &&
+          alarmProperty.canCall === true
         ) {
-          searchTime.canCall = false;
-          searchTime.callback();
+          alarmProperty.canCall = false;
+          alarmProperty.callback();
         }
       });
     }, 1000);
@@ -60,7 +60,6 @@ class AlarmClock {
   resetAllCalls() {
     this.alarmCollection.forEach((alarm) => (alarm.canCall = true));
   }
-
   clearAlarms() {
     this.stop();
     this.alarmCollection = [];
