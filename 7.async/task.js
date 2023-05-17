@@ -7,18 +7,14 @@ class AlarmClock {
     if (!time || !callback) {
       throw new Error("Отсутствуют обязательные аргументы");
     }
-    let repeatedCall = this.alarmCollection.some((elementTime) => {
-      return elementTime === time;
-    });
-    if (repeatedCall === true) {
+    if (this.alarmCollection.some((elementTime) => elementTime === time)) {
       console.warn("Уже присутствует звонок на это же время");
     }
-    let objectParameters = {
+    this.alarmCollection.push({
       callback,
       time,
       canCall: true,
-    };
-    this.alarmCollection.push(objectParameters);
+    });
   }
   removeClock(time) {
     this.alarmCollection = this.alarmCollection.filter(
@@ -55,7 +51,7 @@ class AlarmClock {
   }
   stop() {
     clearInterval(this.intervalId);
-    return (this.intervalId = null);
+    this.intervalId = null;
   }
   resetAllCalls() {
     this.alarmCollection.forEach((alarm) => (alarm.canCall = true));
